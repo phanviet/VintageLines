@@ -69,20 +69,23 @@ class VintageLinesEventListener(sublime_plugin.EventListener):
         if self.view:
             settings = self.view.settings()
 
-            if settings.has("vintage_lines.force_mode"):
-                show = settings.get("vintage_lines.force_mode")
-            #elif type(settings.get('command_mode')) is bool:
-            #   show = settings.get('command_mode')
-            else:
-                show = False
+            # if settings.has("vintage_lines.force_mode"):
+            #     show = settings.get("vintage_lines.force_mode")
+            # #elif type(settings.get('command_mode')) is bool:
+            # #   show = settings.get('command_mode')
+            # else:
+            #     show = False
 
-            mode = settings.get('vintage_lines.mode', False)
-            line = settings.get('vintage_lines.line', -1)
-            lines = settings.get('vintage_lines.lines', -1)
+            # mode = settings.get('vintage_lines.mode', False)
+            # line = settings.get('vintage_lines.line', -1)
+            # lines = settings.get('vintage_lines.lines', -1)
 
-            update = mode != show
-            update = update or line != self.view.rowcol(self.view.sel()[0].begin())[0]
-            update = update or lines != self.view.rowcol(self.view.size())[0]
+            # update = mode != show
+            # update = update or line != self.view.rowcol(self.view.sel()[0].begin())[0]
+            # update = update or lines != self.view.rowcol(self.view.size())[0]
+
+            update = True
+            show = True
             if update:
                 if show:
                     self.removeRelativeNumbers()
